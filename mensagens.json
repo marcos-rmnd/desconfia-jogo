@@ -1,0 +1,108 @@
+[
+  {"obs": "JOGO É GOLPE OU NÃO, COM 15 MENSAGENS E VALIDAÇÃO "},
+  {
+    "id": 1,
+    "canal": "SMS",
+    "texto": "CPF 041..-22 IRREGULAR. Sua chave Pix sera cancelada em 24h. Regularize: bcb-regulariza-cpf.site",
+    "veredito": "G",
+    "explicacao": "O Banco Central nao manda SMS desse tipo para pedir regularização de chave Pix. Órgãos públicos usam domínios oficiais, como .gov.br, e nao endereços aleatórios. O CPF aparecer corretamente na mensagem não significa que ela seja verdadeira. Dados vazados são usados justamente para dar mais credibilidade aos golpes."
+  },
+  {
+    "id": 2,
+    "canal": "WhatsApp",
+    "texto": "Oi mãe, quebrei meu celular e estou com número novo. Preciso pagar um boleto hoje, consegue fazer um Pix? Depois te devolvo",
+    "veredito": "G",
+    "explicacao": "Esse é o conhecido golpe do falso parente. Uma regra simples ajuda bastante: se alguém pedir dinheiro por mensagem, ligue para o número antigo que você já tinha salvo antes de fazer qualquer pagamento. Hoje também existe a possibilidade de usar áudio com voz clonada por IA."
+  },
+  {
+    "id": 3,
+    "canal": "Notificação do app do banco",
+    "texto": "Nova chave Pix cadastrada: e-mail j****@gmail.com. Não reconhece? Acesse o app.",
+    "veredito": "L",
+    "explicacao": "A mensagem apenas informa que houve uma alteração e orienta o usuário a abrir o próprio aplicativo. Golpes normalmente tentam fazer você clicar em um link, fornecer dados, passar um código ou realizar um pagamento. Uma notificação legítima pode simplesmente informar o que aconteceu."
+  },
+  {
+    "id": 4,
+    "canal": "E-mail",
+    "texto": "Remetente: nfe@receita-federal-nfe.com | Sua Nota Fiscal esta disponível. Baixe: NFe_0293841.pdf.exe",
+    "veredito": "G",
+    "explicacao": "O domínio parece oficial, mas não é um endereço legítimo do governo. Além disso, o arquivo termina em .exe, apesar de tentar parecer um PDF. Nunca execute arquivos com dupla extensão ou extensão inesperada para o tipo de documento."
+  },
+  {
+    "id": 5,
+    "canal": "Instagram (DM)",
+    "texto": "Parabéns! Você foi selecionado no sorteio de um iPhone. Pague somente o frete de R$ 39,90 no Pix abaixo.",
+    "veredito": "G",
+    "explicacao": "Prêmio não deveria exigir uma taxa para ser entregue dessa forma. Se você nunca participou do sorteio, fica ainda mais dificil acreditar que tenha sido realmente selecionado. O valor baixo pode ser proposital para que a pessoa pague sem pensar muito."
+  },
+  {
+    "id": 6,
+    "canal": "Ligação",
+    "texto": "Aqui é a segurança do banco. Detectamos compra de R$ 4.780. Confirme os quatro dígitos do token para eu cancelar. E não desligue, senão a transação e aprovada.",
+    "veredito": "G",
+    "explicacao": "O pedido para você não desligar é justamente uma das coisas que devem chamar atenção. O golpista quer impedir que você tenha tempo para conferir a informação por outro canal. Desligar o telefone não faz uma compra ser aprovada automaticamente."
+  },
+  {
+    "id": 7,
+    "canal": "Comunicado da distribuidora",
+    "texto": "Prezado cliente, a sua fatura de julho está disponível no aplicativo. Consultas também nas lojas de atendimento.",
+    "veredito": "L",
+    "explicacao": "A mensagem não pede senha, código, pagamento ou clique em link suspeito. Ela apenas informa que a fatura esta disponível e indica os canais de atendimento. Uma comunicação oficial muitas vezes é justamente assim: informa sem tentar assustar ou pressionar."
+  },
+  {
+    "id": 8,
+    "canal": "Marketplace",
+    "texto": "Já fiz o Pix, olha o comprovante. Pode postar hoje? [imagem de comprovante anexada]",
+    "veredito": "G",
+    "explicacao": "Um comprovante em imagem pode ser editado rapidamente. Por isso, não use a foto enviada pelo comprador como confirmação de pagamento. A única forma segura de confirmar é verificar se o dinheiro realmente apareceu no seu extrato."
+  },
+  {
+    "id": 9,
+    "canal": "SMS",
+    "texto": "CORREIOS: pacote retido na alfandega. Pague R$ 27,60 para liberação: correios-taxa.xyz",
+    "veredito": "G",
+    "explicacao": "Não faça pagamentos por um link recebido dessa maneira. Confira a situacao da encomenda pelos canais oficiais usando o código de rastreamento. Domínios como .xyz, .site e .top se passando por um serviço oficial merecem bastante desconfiança."
+  },
+  {
+    "id": 10,
+    "canal": "E-mail corporativo",
+    "texto": "Estou em reunião, não posso falar. Pague este fornecedor hoje, R$ 22.000. Não comente com ninguém até eu voltar.",
+    "veredito": "G",
+    "explicacao": "O pedido de sigilo é um sinal importante. Uma solicitação financeira fora do processo normal da empresa deve ser confirmada antes do pagamento. Se o responsável está pedindo algo fora do padrão, confirme usando um canal que você já conhecia, não o contato fornecido na própria mensagem."
+  },
+  {
+    "id": 11,
+    "canal": "Facebook",
+    "texto": "URGENTE! Compartilhe antes que apaguem! Estudo comprova que [alimento comum] causa câncer. Isso a mídia esconde!",
+    "veredito": "G",
+    "explicacao": "A mensagem junta vários sinais clássicos de desinformação: cria urgência, fala em tentativa de esconder a informação e não apresenta uma fonte clara. Quando aparecer uma afirmação desse tamanho, procure o estudo original, o autor, a data e outras fontes confiáveis antes de compartilhar."
+  },
+  {
+    "id": 12,
+    "canal": "E-mail",
+    "texto": "Gravei você pela webcam. Pague R$ 2.000 em cripto em 48h ou envio a todos os seus contatos. Sua senha é: [senha antiga real]",
+    "veredito": "G",
+    "explicacao": "A senha antiga pode ter vindo de um vazamento de dados. Isso não significa que o criminoso tenha invadido seu computador ou webcam. Não pague e não responda. Troque a senha em todos os serviços onde ela ainda estiver sendo usada e ative a verificação em duas etapas."
+  },
+  {
+    "id": 13,
+    "canal": "Confirmação de compra",
+    "texto": "Seu pedido #4471 foi enviado. Acompanhe pelo aplicativo da loja.",
+    "veredito": "L",
+    "explicacao": "Você realmente fez a compra, a mensagem não está pedindo nenhum dado ou pagamento. Além disso, não existe um link estranho para acessar. Uma confirmação legítima normalmente é assim: simples, sem urgência e sem pedir nada."
+  },
+  {
+    "id": 14,
+    "canal": "WhatsApp",
+    "texto": "Aqui é do suporte. Detectamos acesso irregular. Vou mandar um código de 6 dígitos por SMS, me repasse para eu bloquear o invasor.",
+    "veredito": "G",
+    "explicacao": "O código recebido por SMS é uma informação de segurança da sua conta. Não compartilhe esse código com ninguém. Nenhum suporte legítimo precisa que o usuário repasse esse código para resolver um problema."
+  },
+  {
+    "id": 15,
+    "canal": "QR Code",
+    "texto": "Adesivo colado por cima do QR Code original na mesa do restaurante. Você escaneia e vai para um site externo.",
+    "veredito": "G",
+    "explicacao": "O problema é que você não sabe para onde aquele QR Code alterado vai enviar o pagamento. Antes de confirmar o Pix, confira o nome do recebedor que aparece na tela. Se aparecer uma pessoa fisica desconhecida quando você esperava pagar um estabelecimento, interrompa a operação."
+  }
+]

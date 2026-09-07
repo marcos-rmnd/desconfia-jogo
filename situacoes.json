@@ -1,0 +1,113 @@
+[
+  {"obs": "SÃO AO TODO 10 SITUAÇÕES ESPECÍFICAS PARA O JOGO 3"},
+  {
+    "id": 1,
+    "situacao": "Você acabou de fazer um Pix de R$ 1.900 para um golpista que se passou pelo seu filho. Quatro minutos depois, percebeu que era golpe.",
+    "opcoes": {
+      "A": "Ligar para o número usado pelo golpista e pedir o dinheiro de volta.",
+      "B": "Esperar até o dia seguinte para ver se o dinheiro volta.",
+      "C": "Abrir imediatamente o aplicativo do banco e solicitar o bloqueio e a devolução pelo MED."
+    },
+    "correta": "C",
+    "explicacao": "Nesse caso, tempo é importante. A recuperação depende de ainda existir saldo na conta que recebeu o dinheiro. Depois de avisar o banco, guarde os prints, comprovantes e protocolos e registre o B.O."
+  },
+  {
+    "id": 2,
+    "situacao": "Sua conta do WhatsApp foi roubada e o criminoso já começou a pedir dinheiro para seus contatos.",
+    "opcoes": {
+      "A": "Avisar seus contatos imediatamente por outro canal e depois cuidar da recuperação da conta.",
+      "B": "Criar outra conta e simplesmente abandonar a antiga.",
+      "C": "Esperar recuperar a conta para só então avisar as pessoas."
+    },
+    "correta": "A",
+    "explicacao": "O primeiro objetivo é evitar novas vítimas. Avise seus contatos por outro meio enquanto tenta recuperar a conta. Depois, siga o processo oficial de recuperação, desconecte aparelhos desconhecidos, ative a verificação em duas etapas e denuncie o número pelo aplicativo."
+  },
+  {
+    "id": 3,
+    "situacao": "Seus arquivos foram criptografados e apareceu uma tela exigindo R$ 10.000,00 para liberar tudo.",
+    "opcoes": {
+      "A": "Pagar rapidamente antes que o prazo termine.",
+      "B": "Não pagar, desconectar o equipamento da rede e tentar restaurar os arquivos a partir do backup.",
+      "C": "Negociar um valor menor com o criminoso."
+    },
+    "correta": "B",
+    "explicacao": "Pagar não garante que os arquivos serão devolvidos e ainda financia o crime. Desconectar o equipamento da rede também ajuda a impedir que o ransomware se espalhe para outro dispositivo. Se houver um backup disponivel, ele pode ser usado para restaurar os arquivos. A utilização de um bom antivirus protege de alguns ataques deste tipo, não todos!"
+  },
+  {
+    "id": 4,
+    "situacao": "Você comprou em um site, o produto nunca chegou e a loja parou de responder.",
+    "opcoes": {
+      "A": "Reclamar somente nas redes sociais.",
+      "B": "Registrar a reclamação no consumidor.gov.br, no Procon e também fazer um B.O.",
+      "C": "Fazer outra compra para descobrir se o site ainda funciona."
+    },
+    "correta": "B",
+    "explicacao": "O consumidor.gov.br é uma plataforma pública para resolver conflitos de consumo. O B.O. ajuda a formalizar a ocorrência, enquanto os canais de defesa do consumidor tratam da questão do prejuízo. Se o pagamento foi realizado com cartão, também vale entrar em contato com o banco para solicitar a contestação."
+  },
+  {
+    "id": 5,
+    "situacao": "Você recebe um aviso dizendo que sua senha vazou em um site que usa há vários anos.",
+    "opcoes": {
+      "A": "Ignorar, porque a senha já é antiga.",
+      "B": "Excluir somente a conta desse site.",
+      "C": "Trocar a senha nesse site e em qualquer outro lugar onde a mesma senha foi usada, além de ativar a verificação em duas etapas."
+    },
+    "correta": "C",
+    "explicacao": "O problema não fica limitado ao site que sofreu o vazamento. Se você repetiu a mesma senha em outros serviços, essas contas também podem estar em risco. Troque em todos os lugares e ative o segundo fator de autenticação."
+  },
+  {
+    "id": 6,
+    "situacao": "Um parente compartilha no grupo da família uma notícia que você acabou de verificar e descobriu que é falsa.",
+    "opcoes": {
+      "A": "Mandar uma mensagem privada com a fonte da checagem, sem tratar a pessoa como se ela fosse ignorante.",
+      "B": "Corrigir a pessoa publicamente no grupo.",
+      "C": "Não fazer nada para evitar discussão."
+    },
+    "correta": "A",
+    "explicacao": "Uma correção pública pode fazer a pessoa se sentir atacada e ficar ainda mais resistente a informação. Em uma conversa privada, ela pode reconsiderar o que compartilhou sem passar por constrangimento. Não corrigir também significa deixar a informação falsa circulando."
+  },
+  {
+    "id": 7,
+    "situacao": "Você caiu em um golpe e perdeu R$ 8.000. Sua irmã percebe que você está estranho(a) e pergunta o que aconteceu.",
+    "opcoes": {
+      "A": "Não contar para ninguém, porque ninguém precisa saber.",
+      "B": "Contar somente depois de resolver tudo sozinho.",
+      "C": "Contar para ela."
+    },
+    "correta": "C",
+    "explicacao": "Esconder o problema pode fazer com que o golpe continue sem ser denunciado e ainda aumenta o risco de outras pessoas próximas caírem na mesma situação. A vergonha é uma das coisas que fazem muitos golpes continuarem funcionando. Contar para alguém de confiança pode ajudar tanto na denúncia quanto na tentativa de recuperar o dinheiro."
+  },
+  {
+    "id": 8,
+    "situacao": "Você recebe uma ligação com a voz do seu irmão pedindo um Pix urgente. A voz parece exatamente a dele.",
+    "opcoes": {
+      "A": "Fazer o Pix, porque a voz é inconfundível.",
+      "B": "Desligar e ligar para o número do seu irmão que já está salvo no seu celular.",
+      "C": "Pedir outro áudio para ter certeza."
+    },
+    "correta": "B",
+    "explicacao": "Hoje, voz e imagem já não são suficientes para confirmar a identidade de uma pessoa. Áudios e vídeos podem ser clonados ou manipulados. A melhor defesa nesse caso é confirmar a situação usando um canal que você já conhecia antes da ligação."
+  },
+  {
+  "id": 9,
+  "situacao": "Você recebeu um e-mail de 'rnicrosoft.com' dizendo que a sua senha expirou e que você precisa clicar no link para redefini-la imediatamente.",
+  "opcoes": {
+    "A": "Clicar no link e redefinir a senha para não perder o acesso.",
+    "B": "Responder ao e-mail informando a sua senha atual e a nova senha desejada.",
+    "C": "Ignorar o e-mail, pois você percebeu o erro de digitação no domínio e sabe que é golpe."
+  },
+  "correta": "C",
+  "explicacao": "Fique sempre muito atento(a) a erros de digitação no endereço do remetente, trocar 'mi' por 'rn' é uma tática comum para simular sites oficiais. Nunca clique em links de e-mails duvidosos e muito menos envie suas senhas por qualquer meio de comunicação. Acesse o site digitando o endereço correto no navegador ou entre em contato pelo canal oficial da empresa."
+},
+  {
+  "id": 10,
+  "situacao": "Você vê no Instagram um anúncio de uma loja de donuts artesanais com uma promoção imperdível: 'Caixa com 05 donuts por apenas R$ 19,90 - primeira compra com frete grátis!'. O perfil tem milhares de seguidores, fotos lindas e comentários positivos. Ao clicar no link, o site pede pagamento via Pix antes de finalizar o pedido.",
+  "opcoes": {
+    "A": "Aproveitar a promoção e pagar via Pix, pois o valor é muito baixo e o perfil parece confiável.",
+    "B": "Pesquisar a loja no Reclame Aqui, ver se tem endereço físico e CNPJ, e desconfiar de valores muito abaixo do mercado antes de qualquer pagamento.",
+    "C": "Compartilhar o anúncio com amigos para eles também aproveitarem a promoção."
+  },
+  "correta": "B",
+  "explicacao": "Golpistas criam perfis falsos com seguidores comprados e comentários fabricados para parecerem legítimos. Preços muito abaixo do mercado são um sinal vermelho. Sites que pedem Pix antes de confirmar o pedido são suspeitos, pois não há como estornar facilmente. Sempre verifique CNPJ, endereço físico, Reclame Aqui e redes sociais em busca de reclamações reais antes de comprar."
+}
+]

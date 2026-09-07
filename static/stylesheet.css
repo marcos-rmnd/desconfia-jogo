@@ -1,0 +1,488 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg: #0d0b1e;
+  --window-bg: #12103a;
+  --border: #4fc3f7;
+  --titlebar-start: #0d47a1;
+  --titlebar-end: #1976d2;
+  --text: #cfd8dc;
+  --text-bright: #ffffff;
+  --verde: #69ff47;
+  --vermelho: #ff4757;
+  --amarelo: #ffd32a;
+  --azul: #4fc3f7;
+  --cinza: #37474f;
+  --cinza-escuro: #263238;
+}
+body {
+  background-color: var(--bg);
+  background-image: linear-gradient(rgba(79, 195, 247, 0.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(79, 195, 247, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  min-height: 100vh;
+  height: auto;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'VT323', monospace;
+  color: var(--text);
+}
+#app {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+.window {
+  border: 2px solid var(--border);
+  box-shadow:
+    0 0 0 1px rgba(79, 195, 247, 0.2),
+    0 0 30px rgba(79, 195, 247, 0.15),
+    inset 0 0 40px rgba(0, 0, 0, 0.4);
+  background: var(--window-bg);
+  animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.titlebar {
+  background: linear-gradient(to right, var(--titlebar-start), var(--titlebar-end));
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--text-bright);
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--border);
+  user-select: none;
+}
+.titlebar .fechar {
+  background: #c62828;
+  color: #fff;
+  border: 1px solid #ef9a9a;
+  padding: 2px 6px;
+  font-size: 8px;
+  cursor: pointer;
+}
+.content {
+  padding: 24px 20px;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.logo-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: var(--azul);
+  text-shadow: 0 0 20px rgba(79, 195, 247, 0.6);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.logo-sub {
+  font-size: 18px;
+  color: var(--text);
+  opacity: 0.7;
+}
+.menu-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.separador-menu {
+  border: none;
+  border-top: 1px solid var(--cinza);
+  margin: 6px 0;
+}
+.btn-menu {
+  background: var(--cinza-escuro);
+  color: var(--text-bright);
+  border: 1px solid var(--cinza);
+  padding: 14px 16px;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+  width: 100%;
+}
+.btn-menu:hover {
+  background: #1a3a5c;
+  border-color: var(--azul);
+  color: var(--azul);
+}
+.btn-menu .num {
+  color: var(--azul);
+  margin-right: 8px;
+}
+.btn-menu.secundario .num {
+  color: var(--cinza);
+}
+.btn-menu.secundario {
+  color: var(--text);
+  font-size: 18px;
+}
+.menu-rodape {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: var(--text);
+  border-top: 1px solid var(--cinza);
+  padding-top: 14px;
+}
+.menu-rodape strong {
+  color: var(--amarelo);
+}
+/* status de vidas e pontos durante o jogo */
+.status-jogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--cinza);
+  font-size: 22px;
+}
+.vidas span {
+  font-size: 20px;
+}
+.vida-on  { color: var(--vermelho); }
+.vida-off { color: var(--cinza); }
+.pts-display {
+  color: var(--amarelo);
+  font-size: 20px;
+}
+.pergunta-texto {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-bright);
+  margin-bottom: 20px;
+  min-height: 60px;
+}
+.canal-badge {
+  display: inline-block;
+  background: #1a237e;
+  color: var(--azul);
+  border: 1px solid var(--azul);
+  padding: 3px 10px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.alternativas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.btn-alt {
+  background: var(--cinza-escuro);
+  color: var(--text-bright);
+  border: 1px solid var(--cinza);
+  padding: 12px 14px;
+  font-family: 'VT323', monospace;
+  font-size: 19px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s;
+  line-height: 1.4;
+}
+.btn-alt:hover:not(:disabled) {
+  background: #1a3a5c;
+  border-color: var(--azul);
+}
+.btn-alt:disabled {
+  cursor: default;
+}
+.btn-alt .letra {
+  color: var(--azul);
+  margin-right: 8px;
+}
+.btn-alt.certa {
+  background: #1b5e20;
+  border-color: var(--verde);
+  color: var(--verde);
+}
+.btn-alt.errada {
+  background: #b71c1c;
+  border-color: var(--vermelho);
+  color: var(--vermelho);
+}
+.botoes-veredito {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.btn-veredito {
+  flex: 1;
+  padding: 18px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  border: 2px solid;
+  transition: transform 0.1s, opacity 0.1s;
+}
+.btn-veredito:hover:not(:disabled) {
+  transform: scale(1.02);
+}
+.btn-veredito:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.btn-golpe {
+  background: #b71c1c;
+  border-color: var(--vermelho);
+  color: #fff;
+}
+.btn-legitimo {
+  background: #1b5e20;
+  border-color: var(--verde);
+  color: #fff;
+}
+.timer-wrap {
+  margin-bottom: 16px;
+}
+.timer-numero {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.timer-barra-bg {
+  background: var(--cinza-escuro);
+  height: 8px;
+  border: 1px solid var(--cinza);
+}
+.timer-barra {
+  height: 100%;
+  transition: width 1s linear, background 1s;
+}
+.explicacao-box {
+  background: var(--cinza-escuro);
+  border-left: 3px solid var(--azul);
+  padding: 14px 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.avaliacao-linha {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.avaliacao-certo  { color: var(--verde); }
+.avaliacao-errado { color: var(--vermelho); }
+.resultado-info {
+  margin-bottom: 24px;
+}
+.resultado-linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cinza);
+}
+.resultado-linha:last-child {
+  border-bottom: none;
+}
+.classificacao-box {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid;
+  margin: 20px 0;
+}
+.classificacao-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.classificacao-desc {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.cls-isca     { border-color: var(--vermelho); color: var(--vermelho); }
+.cls-atento   { border-color: var(--amarelo);  color: var(--amarelo);  }
+.cls-blindado { border-color: var(--verde);    color: var(--verde);    }
+.cls-Perito { border-color: var(--azul);     color: var(--azul);     }
+.pontuacao-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cinza);
+}
+.regras-lista {
+  list-style: none;
+  margin-bottom: 20px;
+}
+.regras-lista li {
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cinza);
+}
+.regras-lista li:last-child {
+  border-bottom: none;
+}
+.regras-lista .num-regra {
+  color: var(--azul);
+  margin-right: 6px;
+}
+.denuncias-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--amarelo);
+  margin: 20px 0 10px;
+}
+.denuncia-item {
+  background: var(--cinza-escuro);
+  padding: 10px 14px;
+  font-size: 17px;
+  margin-bottom: 6px;
+  border-left: 3px solid var(--amarelo);
+}
+.btn-acao {
+  background: #1565c0;
+  color: #fff;
+  border: 1px solid var(--azul);
+  padding: 14px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  transition: background 0.1s;
+}
+.btn-acao:hover {
+  background: #1976d2;
+}
+.btn-acao.outline {
+  background: transparent;
+  color: var(--azul);
+}
+.btn-acao.outline:hover {
+  background: rgba(79, 195, 247, 0.1);
+}
+.btn-acao.danger {
+  background: transparent;
+  color: var(--vermelho);
+  border-color: var(--vermelho);
+}
+.gameover-box {
+  text-align: center;
+  padding: 20px 0;
+}
+.gameover-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: var(--vermelho);
+  margin-bottom: 12px;
+  animation: pisca 0.8s step-end infinite;
+}
+@keyframes pisca {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.gameover-sub {
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.secao-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--amarelo);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--cinza);
+}
+.progresso-barra-bg {
+  background: var(--cinza-escuro);
+  height: 6px;
+  margin-bottom: 20px;
+  border: 1px solid var(--cinza);
+}
+.progresso-barra {
+  height: 100%;
+  background: var(--azul);
+  transition: width 0.3s;
+}
+/* responsivo */
+@media (max-width: 400px) {
+  .logo-titulo { font-size: 14px; }
+  .btn-menu    { font-size: 18px; }
+  .btn-alt     { font-size: 17px; }
+  .botoes-veredito { flex-direction: column; }
+}
+/* Estilos para a tela de login */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+.input-nome {
+  background: var(--cinza-escuro);
+  color: var(--text-bright);
+  border: 2px solid var(--border);
+  padding: 12px 14px;
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  outline: none;
+  box-shadow: inset 0 0 10px rgba(79, 195, 247, 0.2);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input-nome:focus {
+  border-color: var(--azul);
+  box-shadow: 0 0 15px rgba(79, 195, 247, 0.5);
+}
+.input-nome::placeholder {
+  color: var(--cinza);
+}
+/* Botão de sair e resetar [X] */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal-caixa {
+  background: #111;
+  padding: 24px;
+  border: 2px solid #0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 260px;
+}
+.btn-menu.jogado {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.btn-fechar {
+  cursor: pointer;
+}
+.btn-acao.forms {
+  margin-top: 20px;
+  background: #1976d2;
+}
+.menu-cta-forms {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cinza);
+}

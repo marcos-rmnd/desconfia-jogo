@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block titulo_janela %}RESULTADO - {{ jogo }}{% endblock %}
+{% block conteudo %}
+{% if gameover %}
+<div class="gameover-box">
+  <div class="gameover-titulo">!Você caiu no golpe!</div>
+  <div class="gameover-sub">Você perdeu todas as vidas.</div>
+</div>
+{% endif %}
+<div class="resultado-info">
+  <div class="resultado-linha">
+    <span>Acertos neste jogo</span>
+    <span style="color: #69ff47"><strong>{{ ac }}/{{ tot }}</strong></span>
+  </div>
+  {% if tot > 0 %}
+  <div class="resultado-linha">
+    <span>Aproveitamento</span>
+    <span style="color: #ffd32a"><strong>{{ (ac / tot * 100) | round | int }}%</strong></span>
+  </div>
+  {% endif %}
+  <div class="resultado-linha">
+    <span>Pontos neste jogo</span>
+    <span style="color: #ffd32a"><strong>{{ pts }} pts</strong></span>
+  </div>
+  <div class="resultado-linha">
+    <span>Total acumulado</span>
+    <span style="color: #4fc3f7"><strong>{{ pontos }} pts</strong></span>
+  </div>
+</div>
+<div class="classificacao-box {{ cls.cls }}">
+  <div class="classificacao-label">{{ cls.label }}</div>
+  <div class="classificacao-desc">{{ cls.desc }}</div>
+</div>
+<a href="{{ url_for('menu') }}" class="btn-acao">VOLTAR AO MENU INICIAL</a>
+{% endblock %}

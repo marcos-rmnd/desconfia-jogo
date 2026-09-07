@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block titulo_janela %}{{ jogo }}{% endblock %}
+{% block extra_titlebar %}{{ idx }}/{{ tot }}{% endblock %}
+{% block conteudo %}
+<div class="status-jogo">
+  <div class="vidas">
+    {% for i in range(vidas) %}<span class="vida-on">&#9829;</span>{% endfor %}
+    {% for i in range(3 - vidas) %}<span class="vida-off">&#9825;</span>{% endfor %}
+  </div>
+  <div class="pts-display">{{ pontos }} pts</div>
+</div>
+{% if timeout %}
+  <div class="avaliacao-linha avaliacaoerrado">&#8987; TEMPO ESGOTADO! Resposta certa era: {{ correta }}</div>
+{% elif certa %}
+  <div class="avaliacao-linha avaliacao-certo">&#10003; CERTO! +10 pts</div>
+{% else %}
+  <div class="avaliacao-linha avaliacao-errado">&#10007; ERRADO! Resposta certa era: {{ correta }}</div>
+{% endif %}
+<div class="explicacao-box">{{ explicacao }}</div>
+{% if vidas <= 0 %}
+  <a href="{{ url_for('game_over') }}" class="btn-acao">VER RESULTADO</a>
+{% elif idx >= tot %}
+  <a href="{{ url_for('resultados') }}" class="btn-acao">VER RESULTADO</a>
+{% else %}
+  <a href="{{ proximo_url }}" class="btn-acao">PROXIMA</a>
+{% endif %}
+{# O botão de voltar ao menu SÓ aparece quando o jogo termina #}
+{% if vidas <= 0 or idx >= tot %}
+  <a href="{{ url_for('menu') }}" class="btn-acao outline" style="margin-top: 8px">VOLTAR AO MENU INICIAL</a>
+{% endif %}
+{% endblock %}

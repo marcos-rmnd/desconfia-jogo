@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block titulo_janela %}REGRAS DE OURO{% endblock %}
+{% block conteudo %}
+<div class="secao-titulo">AS 8 REGRAS DE OURO</div>
+<ul class="regras-lista">
+  <li><span class="num-regra">1.</span> O banco não liga pedindo senha, tokens ou transferências.</li>
+  <li><span class="num-regra">2.</span> Se criarem urgencia, pare e pense antes de agir.</li>
+  <li><span class="num-regra">3.</span> Confirme situações suspeitas pelos canais oficiais que você já conhece, nunca por links.</li>
+  <li><span class="num-regra">4.</span> Códigos de 4 ou 6 dígitos: não compartilhe com ninguém.</li>
+  <li><span class="num-regra">5.</span> Antes de confirmar e enviar um Pix, confira duas vezes o nome do recebedor.</li>
+  <li><span class="num-regra">6.</span> Emprego não cobra do empregado. Premio não cobra frete. Rendimento garantido sem risco, simplesmente não existe.</li>
+  <li><span class="num-regra">7.</span> Sempre use senhas diferentes para cada serviço, ative o 2FA e sempre que possível e faca backups dos seus dados.</li>
+  <li><span class="num-regra">8.</span> Se cair em um golpe: aja rapido, guarde todas as provas e conte para alguem de confianca.</li>
+</ul>
+<div class="denuncias-titulo">ONDE DENUNCIAR</div>
+<div class="denuncia-item">Banco (bloqueio e MED) | Delegacia Virtual do seu estado</div>
+<div class="denuncia-item">consumidor.gov.br | Banco Central: 145</div>
+<div class="denuncia-item">SaferNet | Lupa / Aos Fatos / Comprova (para checagem)</div>
+<a href="{{ url_for('menu') }}" class="btn-acao outline" style="margin-top: 20px">VOLTAR AO MENU INICIAL</a>
+{% endblock %}

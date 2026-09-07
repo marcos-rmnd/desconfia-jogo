@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block titulo_janela %}E AGORA?{% endblock %}
+{% block extra_titlebar %}{{ num }}/{{ tot }}{% endblock %}
+{% block conteudo %}
+<div class="progresso-barra-bg">
+  <div class="progresso-barra" style="width: {{ pct }}%"></div>
+</div>
+<div class="status-jogo">
+  <div class="vidas">
+    {% for i in range(vidas) %}<span class="vida-on">&#9829;</span>{% endfor %}
+    {% for i in range(3 - vidas) %}<span class="vida-off">&#9825;</span>{% endfor %}
+  </div>
+  <div class="pts-display">{{ pontos }} pts</div>
+</div>
+<div class="pergunta-texto">{{ s.situacao }}</div>
+<form action="{{ url_for('agora_responder') }}" method="POST">
+  <div class="alternativas">
+    {% for letra, texto in s.opcoes.items() %}
+    <button type="submit" name="resposta" value="{{ letra }}" class="btn-alt">
+      <span class="letra">[{{ letra }}]</span> {{ texto }}
+    </button>
+    {% endfor %}
+  </div>
+</form>
+{% endblock %}

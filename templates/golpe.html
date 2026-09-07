@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block titulo_janela %}É GOLPE OU NAO?{% endblock %}
+{% block extra_titlebar %}{{ num }}/{{ tot }}{% endblock %}
+{% block conteudo %}
+<div class="status-jogo">
+  <div class="vidas">
+    {% for i in range(vidas) %}<span class="vida-on">&#9829;</span>{% endfor %}
+    {% for i in range(3 - vidas) %}<span class="vida-off">&#9825;</span>{% endfor %}
+  </div>
+  <div class="pts-display">{{ pontos }} pts</div>
+</div>
+<div class="timer-wrap">
+  <div class="timer-numero" id="timer-num">15</div>
+  <div class="timer-barra-bg">
+    <div class="timer-barra" id="timer-barra" style="width: 100%; background: #69ff47"></div>
+  </div>
+</div>
+<div class="canal-badge">{{ m.canal }}</div>
+<div class="pergunta-texto">{{ m.texto }}</div>
+<form action="{{ url_for('golpe_responder') }}" method="POST" id="form-golpe">
+  <input type="hidden" name="timeout" id="timeout-input" value="false">
+  <div class="botoes-veredito">
+    <button type="submit" name="resposta" value="G" class="btn-veredito btn-golpe">
+      &#9888; GOLPE
+    </button>
+    <button type="submit" name="resposta" value="L" class="btn-veredito btn-legitimo">
+      &#10003; LEGITIMO
+    </button>
+  </div>
+</form>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='temporizador.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block extra_titlebar %}
+  <span class="btn-fechar" onclick="abrirModalFechar()">[X]</span>
+{% endblock %}
+{% block conteudo %}
+<div class="logo">
+  <div class="logo-titulo">DESCONFIA!</div>
+  <div class="logo-sub">Jogo educativo sobre golpes digitais</div>
+</div>
+<div class="menu-lista">
+  {% if jogos.get('quiz') %}
+    <span class="btn-menu jogado"><span class="num">[1]</span> Quiz — Já jogado [✓]</span>
+  {% else %}
+    <a class="btn-menu" href="{{ url_for('quiz_iniciar') }}">
+      <span class="num">[1]</span>Quiz: o que você sabe sobre golpes?
+    </a>
+  {% endif %}
+  {% if jogos.get('golpe') %}
+    <span class="btn-menu jogado"><span class="num">[2]</span> Golpe ou Não? — Já jogado [✓]</span>
+  {% else %}
+    <a class="btn-menu" href="{{ url_for('golpe_iniciar')}}">
+      <span class="num">[2]</span>Golpe ou Não? Situações com 15 segundos para decidir
+    </a>
+  {% endif %}
+  {% if jogos.get('agora') %}
+    <span class="btn-menu jogado"><span class="num">[3]</span> E agora? — Já jogado [✓]</span>
+  {% else %}
+    <a class="btn-menu" href="{{ url_for('agora_iniciar')}}">
+      <span class="num">[3]</span>E agora? O que fazer em cada situação?
+    </a>
+  {% endif %}
+  <hr class="separador-menu">
+  <a class="btn-menu secundario" href="{{ url_for('pontuacao')}}">
+    <span class="num">[4]</span> Ver a pontuação acumulada
+  </a>
+  <a class="btn-menu secundario" href="{{ url_for('regras')}}">
+    <span class="num">[5]</span> As 8 regras de ouro
+  </a>
+</div>
+<div class="menu-rodape">
+  <span>Pontos: <strong>{{ pontos }}</strong></span>
+  <span>Acertos: <strong>{{ acertos }}/{{ total }}</strong></span>
+</div>
+<div class="menu-cta-forms">
+{% if todos_completos %}
+<a id="btn-forms" class="btn-acao forms" href="javascript:void(0)" onclick="abrirForms('{{ link_forms }}')">
+  Avalie a sua experiência
+</a>
+{% endif %}
+</div>
+
+<div id="modal-fechar" class="modal-overlay">
+  <div class="modal-caixa">
+    <p>O que você deseja fazer?</p>
+    <button class="btn-acao" onclick="window.location.href='{{ url_for('resetar') }}'">Reiniciar progresso</button>
+    <button class="btn-acao secundario" onclick="fecharPagina()">Apenas sair</button>
+    <button class="btn-acao secundario" onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='menu.js') }}"></script>
+{% endblock %}
+

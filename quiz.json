@@ -1,0 +1,263 @@
+[
+  {"obs": "SÃO  20 PERGUNTAS NO TOTAL, SENDO 15 SELECIONADAS DE FORMA ALEATÓRIA"},
+  {
+    "id": 1,
+    "pergunta": "Um funcionário do banco liga e diz que precisa da sua senha para cancelar uma compra suspeita. O que você faz?",
+    "alternativas": {
+      "A": "Passa somente os dois primeiros números da senha",
+      "B": "Passa a senha porque ele conseguiu confirmar seu nome completo",
+      "C": "Desliga e liga para o banco usando o número que aparece no aplicativo oficial",
+      "D": "Pede para ele mandar uma foto do crachá"
+    },
+    "correta": "C",
+    "explicacao": "Banco não pede senha, token ou transferência por telefone. O fato de a pessoa saber seu nome ou CPF também não confirma que ela trabalha no banco. Esses dados podem ter sido obtidos em vazamentos. (Febraban)",
+    "tema": "golpe"
+  },
+  {
+    "id": 2,
+    "pergunta": "Qual é a forma mais segura de conferir para quem você está enviando um Pix?",
+    "alternativas": {
+      "A": "Confiar no QR Code",
+      "B": "Conferir somente o valor",
+      "C": "Confiar no comprovante enviado pelo vendedor",
+      "D": "Conferir o nome e o CPF ou CNPJ que aparecem na tela antes da confirmação"
+    },
+    "correta": "D",
+    "explicacao": "Antes de confirmar, vale gastar alguns segundos olhando o nome e o documento do recebedor. Se você está pagando uma empresa e aparece uma pessoa física desconhecida, pare a operação. Essa conferência ajuda a identificar boleto adulterado, QR Code alterado e até loja falsa.",
+    "tema": "golpe"
+  },
+  {
+    "id": 3,
+    "pergunta": "Alguém pede o código de 6 dígitos que chegou por SMS no seu WhatsApp. O que isso significa?",
+    "alternativas": {
+      "A": "É uma confirmação normal de cadastro",
+      "B": "É um procedimento do suporte oficial",
+      "C": "É uma tentativa de assumir sua conta",
+      "D": "É um código de rastreamento"
+    },
+    "correta": "C",
+    "explicacao": "Esse código pode ser usado para registrar sua conta em outro aparelho. Não passe esse código para ninguém. Nem o WhatsApp nem o banco precisam que você informe esse código para resolver um problema. Em muitos casos de roubo de conta, o próprio usuário acaba entregando o código ao golpista.",
+    "tema": "golpe"
+  },
+  {
+    "id": 4,
+    "pergunta": "O número que aparece no seu celular é exatamente o número do banco. Isso significa que a ligação é realmente do banco?",
+    "alternativas": {
+      "A": "Sim, porque um número não pode ser falsificado",
+      "B": "Não. Existe spoofing, que permite mascarar o número de origem da chamada",
+      "C": "Sim, principalmente se começar com 0800",
+      "D": "Só é confiável se a ligação acontecer pela manhã"
+    },
+    "correta": "B",
+    "explicacao": "O spoofing pode fazer aparecer até mesmo o número da agência ou do banco no identificador de chamadas. Por isso, olhar o número que aparece na tela não é suficiente para confirmar quem está ligando. (Febraban)",
+    "tema": "golpe"
+  },
+  {
+    "id": 5,
+    "pergunta": "O que é ransomware?",
+    "alternativas": {
+      "A": "Um código malicioso que bloqueia ou criptografa arquivos e pede dinheiro para liberá-los",
+      "B": "Um programa que fica mostrando anúncios",
+      "C": "Um tipo de antivírus",
+      "D": "Um vírus que funciona somente em celulares"
+    },
+    "correta": "A",
+    "explicacao": "Existem ransomwares que bloqueiam o acesso ao equipamento e outros que criptografam os arquivos. Em ambos os casos, o criminoso tenta cobrar um resgate para devolver o acesso. (CERT.br)",
+    "tema": "virus"
+  },
+  {
+    "id": 6,
+    "pergunta": "Qual é uma das principais formas de se proteger contra a perda de arquivos causada por ransomware?",
+    "alternativas": {
+      "A": "Pagar o resgate assim que aparecer a cobrança",
+      "B": "Trocar a senha do Wi-Fi",
+      "C": "Reiniciar o computador",
+      "D": "Manter um backup atualizado e desconectado"
+    },
+    "correta": "D",
+    "explicacao": "Pagar o resgate não garante que os arquivos serão recuperados e ainda ajuda a financiar esse tipo de crime. Ter um backup atualizado e mantê-lo desconectado é uma das principais formas de conseguir recuperar os arquivos. (CERT.br)",
+    "tema": "virus"
+  },
+  {
+    "id": 7,
+    "pergunta": "Você recebe um arquivo chamado 'boleto.pdf.exe'. O que provavelmente é isso?",
+    "alternativas": {
+      "A": "Um PDF com um nome diferente",
+      "B": "Um programa executável tentando parecer um PDF",
+      "C": "Um arquivo compactado",
+      "D": "Um boleto normal"
+    },
+    "correta": "B",
+    "explicacao": "O arquivo possui uma extensão executável depois do '.pdf'. Isso é um disfarce comum para tentar fazer a pessoa abrir um programa malicioso. Um PDF normalmente não termina em .exe, .scr ou .bat.",
+    "tema": "virus"
+  },
+  {
+    "id": 8,
+    "pergunta": "O que um keylogger consegue fazer?",
+    "alternativas": {
+      "A": "Registrar o que você digita, incluindo senhas",
+      "B": "Bloquear o teclado",
+      "C": "Corrigir automaticamente seus erros de digitação",
+      "D": "Deixar o computador mais rápido"
+    },
+    "correta": "A",
+    "explicacao": "Keylogger é um tipo de spyware que registra o que o usuário digita. Dependendo da situação, isso pode incluir senhas e outras informações importantes. Também existem ferramentas como screenloggers, que capturam imagens da tela. (CERT.br)",
+    "tema": "virus"
+  },
+  {
+    "id": 9,
+    "pergunta": "Uma vaga de trabalho promete R$ 500 por dia apenas para curtir vídeos, mas pede um depósito de R$ 20 para 'ativar a carteira'. O que pode ser?",
+    "alternativas": {
+      "A": "Uma taxa administrativa normal",
+      "B": "Um investimento inicial",
+      "C": "O chamado golpe da tarefa",
+      "D": "Um programa de afiliados legítimo"
+    },
+    "correta": "C",
+    "explicacao": "Emprego de verdade não deveria exigir que o trabalhador pagasse para começar. Nesse tipo de golpe, às vezes os primeiros pagamentos realmente acontecem. Isso serve para criar confiança e fazer a vítima colocar valores maiores depois.",
+    "tema": "golpe"
+  },
+  {
+    "id": 10,
+    "pergunta": "Um suposto consultor promete rendimento de 8% ao mês e diz que não existe nenhum risco. O que isso indica?",
+    "alternativas": {
+      "A": "Um fundo de investimento agressivo",
+      "B": "Um produto voltado para grandes investidores",
+      "C": "Um possível golpe, porque não existe rendimento alto garantido sem risco",
+      "D": "Uma criptomoeda estável"
+    },
+    "correta": "C",
+    "explicacao": "Prometer retorno garantido e muito acima do mercado, principalmente junto com a promessa de risco zero, é um sinal importante de fraude. Antes de investir, confira se a empresa ou o profissional está registrado na CVM.",
+    "tema": "golpe"
+  },
+  {
+    "id": 11,
+    "pergunta": "Você recebe um Pix que aparentemente foi enviado por engano. A pessoa pede para você devolver, mas para outra chave. Qual é o risco?",
+    "alternativas": {
+      "A": "Não existe risco, basta devolver",
+      "B": "O único problema é perder tempo",
+      "C": "Você terá que pagar IOF",
+      "D": "O dinheiro pode estar relacionado a outro golpe e você pode acabar servindo como intermediário"
+    },
+    "correta": "D",
+    "explicacao": "Não faça uma devolução para uma chave diferente por conta própria. O mais seguro é avisar o banco e usar o procedimento oficial de devolução, que deve retornar o dinheiro para a conta de origem.",
+    "tema": "golpe"
+  },
+  {
+    "id": 12,
+    "pergunta": "O que é o MED do Pix?",
+    "alternativas": {
+      "A": "Um seguro que precisa ser contratado separadamente",
+      "B": "Um mecanismo do Banco Central que pode ajudar a bloquear e devolver valores em casos de fraude ou falha operacional",
+      "C": "Um estorno automático para qualquer Pix",
+      "D": "Um serviço disponível somente para empresas"
+    },
+    "correta": "B",
+    "explicacao": "O pedido é feito pelo aplicativo do banco. Quanto mais rápido o caso for comunicado, maior pode ser a chance de recuperação, porque isso depende de ainda existir saldo na conta que recebeu o dinheiro. O mecanismo não serve para Pix enviado por engano nem para simples arrependimento. (Banco Central)",
+    "tema": "golpe"
+  },
+  {
+    "id": 13,
+    "pergunta": "Você recebe uma notícia muito grave no grupo da família. Qual deveria ser o primeiro passo?",
+    "alternativas": {
+      "A": "Procurar a mesma informação em veículos confiáveis",
+      "B": "Compartilhar rapidamente antes que a publicação desapareça",
+      "C": "Acreditar porque a mensagem veio de um parente",
+      "D": "Ver quantas pessoas já compartilharam"
+    },
+    "correta": "A",
+    "explicacao": "Antes de compartilhar uma notícia importante, procure outras fontes confiáveis. Uma informação realmente relevante costuma aparecer em mais de um veículo. Se uma notícia extraordinária aparece somente em um site desconhecido, vale desconfiar e verificar melhor.",
+    "tema": "fake_news"
+  },
+  {
+    "id": 14,
+    "pergunta": "Uma foto viral parece mostrar um acontecimento recente. Como descobrir se ela é antiga ou foi tirada de outro contexto?",
+    "alternativas": {
+      "A": "Ampliar a foto",
+      "B": "Fazer uma busca reversa de imagem, como pelo Google Imagens ou TinEye",
+      "C": "Perguntar para quem enviou primeiro",
+      "D": "Ver quantas curtidas a publicação recebeu"
+    },
+    "correta": "B",
+    "explicacao": "Uma foto verdadeira também pode ser usada para ilustrar um acontecimento diferente daquele em que foi registrada. A busca reversa ajuda a descobrir onde aquela imagem já apareceu e qual era o contexto original.",
+    "tema": "fake_news"
+  },
+  {
+    "id": 15,
+    "pergunta": "Um vídeo mostra uma pessoa famosa recomendando um investimento com retorno garantido. O que pode estar acontecendo?",
+    "alternativas": {
+      "A": "É necessariamente uma publicidade verdadeira",
+      "B": "É apenas uma sátira",
+      "C": "É um trecho normal de um programa de televisão",
+      "D": "Pode ser um deepfake usado em um golpe de investimento"
+    },
+    "correta": "D",
+    "explicacao": "Deepfakes podem ser usados para colocar a imagem e a voz de pessoas conhecidas em anúncios falsos. Antes de acreditar nesse tipo de propaganda, confira se a recomendação aparece nos canais oficiais da pessoa. O uso de deepfakes em golpes de investimento aumentou no Brasil entre 2024 e 2025.",
+    "tema": "fake_news"
+  },
+  {
+    "id": 16,
+    "pergunta": "Um site está vendendo uma TV pela metade do preço e aceita somente Pix. Isso é o quê?",
+    "alternativas": {
+      "A": "Uma forma de economizar nas taxas do cartão",
+      "B": "Uma promoção relâmpago",
+      "C": "Um forte sinal de que a loja pode ser falsa",
+      "D": "Uma loja nova tentando conseguir clientes"
+    },
+    "correta": "C",
+    "explicacao": "Aceitar somente Pix não prova sozinho que a loja é falsa, mas merece atenção, principalmente quando o preço está muito abaixo do normal. Antes de comprar, confira o CNPJ, o domínio do site e reclamações de outros consumidores.",
+    "tema": "golpe"
+  },
+  {
+    "id": 17,
+    "pergunta": "O que significa engenharia social?",
+    "alternativas": {
+      "A": "Uma técnica de planejamento urbano",
+      "B": "Uma forma de invadir servidores",
+      "C": "Uma técnica de manipulação psicológica usada para fazer a própria vítima entregar dados ou realizar uma transferência",
+      "D": "Um algoritmo usado por redes sociais"
+    },
+    "correta": "C",
+    "explicacao": "Na engenharia social, o criminoso muitas vezes nem precisa invadir um sistema. Ele tenta convencer a própria pessoa a entregar o que precisa. Urgência, medo, autoridade, ganância e afeto são alguns dos gatilhos usados nesses golpes.",
+    "tema": "golpe"
+  },
+  {
+    "id": 18,
+    "pergunta": "Qual dessas opções representa uma senha mais segura?",
+    "alternativas": {
+      "A": "Uma  longa frase ou conjunto de caracteres, números e símbolos, diferente em cada serviço/site e armazenada em um gerenciador de senhas",
+      "B": "Jo@o2015",
+      "C": "123456789",
+      "D": "Seu CPF escrito ao contrário"
+    },
+    "correta": "A",
+    "explicacao": "Um dos maiores problemas não é apenas usar uma senha fraca, mas repetir a mesma senha em vários lugares. Se um serviço sofrer um vazamento, o criminoso pode tentar aquela mesma combinação em outras contas.",
+    "tema": "virus"
+  },
+  {
+    "id": 19,
+    "pergunta": "Um pop-up aparece dizendo 'SEU COMPUTADOR TEM 5 VÍRUS. LIGUE PARA O SUPORTE'. O que provavelmente é isso?",
+    "alternativas": {
+      "A": "Um alerta legítimo do antivírus",
+      "B": "Scareware, usando o medo para convencer você a ligar ou instalar um programa de acesso remoto",
+      "C": "Um aviso oficial do Windows",
+      "D": "Uma confirmação de que o computador já está infectado"
+    },
+    "correta": "B",
+    "explicacao": "Uma página comum da internet não consegue simplesmente fazer uma varredura completa no seu computador e descobrir quantos vírus existem. Nesse caso, o mais seguro é fechar a aba e não seguir as instruções apresentadas.",
+    "tema": "virus"
+  },
+  {
+    "id": 20,
+    "pergunta": "Você acabou de cair em um golpe de Pix. O que deve fazer primeiro?",
+    "alternativas": {
+      "A": "Publicar nas redes sociais, esperar e depois registrar um B.O.",
+      "B": "Avisar imediatamente o banco para tentar o bloqueio e o MED, guardar prints e protocolos e registrar o B.O.",
+      "C": "Registrar o B.O., esperar 30 dias e só depois falar com o banco",
+      "D": "Ligar para o número fornecido pelo golpista"
+    },
+    "correta": "B",
+    "explicacao": "Nesse tipo de situação, agir rapidamente pode aumentar a chance de bloquear o dinheiro. Guarde prints, comprovantes, mensagens e protocolos antes de apagar qualquer coisa.",
+    "tema": "golpe"
+  }
+]

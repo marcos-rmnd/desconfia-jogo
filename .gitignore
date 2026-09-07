@@ -1,0 +1,13 @@
+# Pastas e arquivos de runtime/sessão
+sessoes/
+scores.db
+# Arquivos compilados do Python
+__pycache__/
+*.pyc
+# Ambientes virtuais
+venv/
+.venv/
+env/
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
