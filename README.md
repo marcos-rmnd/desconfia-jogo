@@ -1,5 +1,9 @@
 # Desconfia!
 
+🎮 **Acesse e jogue agora:** [https://desconfia-jogo.onrender.com](https://desconfia-jogo.onrender.com)
+
+---
+
 Um jogo educativo sobre segurança digital, golpes, vírus e notícias falsas, focado no público adulto.
 
 O jogador vivencia três modos dinâmicos e recebe explicações detalhadas a cada resposta. Mais do que apenas testar o aprendizado, o objetivo principal é ensinar os motivos por trás de cada situação. 
