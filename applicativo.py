@@ -342,16 +342,10 @@ def resultados():
     nome = session.get('nome_jogador', 'Anônimo')
     pontos = session.get('pontos', 0)
     total = session.get('total', 0)
-    # 1. Descobre qual jogo foi jogado agora
+    novo_score = Score(nome=nome, pontos=pontos, total=total)
+    db.session.add(novo_score)
+    db.session.commit()
     chave = GAME_KEYS.get(session.get('jogo', ''))
-    # Salva no banco APENAS se esse jogo específico ainda não foi salvo
-    if chave and not session.get(f'score_salvo_{chave}', False):
-        novo_score = Score(nome=nome, pontos=pontos, total=total)
-        db.session.add(novo_score)
-        db.session.commit()
-        session[f'score_salvo_{chave}'] = True
-        session.modified = True
-    # SEMPRE marca o jogo como completo ao chegar em resultados
     if chave:
         jogos = session.get('jogos_completos', {})
         jogos[chave] = True
