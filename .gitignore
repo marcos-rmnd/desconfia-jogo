@@ -1,3 +1,6 @@
+# Pastas da IDE e arquivos sensíveis
+.idea/
+.env
 # Pastas e arquivos de runtime/sessão
 sessoes/
 scores.db
@@ -8,6 +11,6 @@ __pycache__/
 venv/
 .venv/
 env/
-# Arquivos do sistema operacional
+# Sistema operacional
 .DS_Store
 Thumbs.db
