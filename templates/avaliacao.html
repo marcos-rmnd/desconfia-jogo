@@ -18,14 +18,16 @@
 {% endif %}
 <div class="explicacao-box">{{ explicacao }}</div>
 {% if vidas <= 0 %}
-  <a href="{{ url_for('game_over') }}" class="btn-acao">VER RESULTADO</a>
+  <div class="botoes-container">
+    <a href="{{ url_for('game_over') }}" class="btn-acao">VER RESULTADO</a>
+    <a href="{{ url_for('menu') }}" class="btn-acao outline">VOLTAR AO MENU INICIAL</a>
+  </div>
 {% elif idx >= tot %}
-  <a href="{{ url_for('resultados') }}" class="btn-acao">VER RESULTADO</a>
+  <div class="botoes-container">
+    <a href="{{ url_for('resultados') }}" class="btn-acao">VER RESULTADO</a>
+    <a href="{{ url_for('menu') }}" class="btn-acao outline">VOLTAR AO MENU INICIAL</a>
+  </div>
 {% else %}
-  <a href="{{ proximo_url }}" class="btn-acao">PROXIMA</a>
-{% endif %}
-{# O botão de voltar ao menu SÓ aparece quando o jogo termina #}
-{% if vidas <= 0 or idx >= tot %}
-  <a href="{{ url_for('menu') }}" class="btn-acao outline" style="margin-top: 8px">VOLTAR AO MENU INICIAL</a>
+  <a href="{{ proximo_url }}" class="btn-acao">PRÓXIMA</a>
 {% endif %}
 {% endblock %}

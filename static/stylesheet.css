@@ -419,11 +419,31 @@ body {
   transition: width 0.3s;
 }
 /* responsivo */
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .logo-titulo { font-size: 14px; }
   .btn-menu    { font-size: 18px; }
   .btn-alt     { font-size: 17px; }
   .botoes-veredito { flex-direction: column; }
+  /* Empilha e ajusta o tamanho dos botões de ação no mobile */
+  .botoes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-acao {
+    font-size: 8px !important;
+    padding: 12px 8px !important;
+    white-space: normal !important;
+  }
+}
+/* para manter botões lado a lado no PC */
+.botoes-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.botoes-container .btn-acao {
+  margin-top: 0;
 }
 /* Estilos para a tela de login */
 .login-form {
