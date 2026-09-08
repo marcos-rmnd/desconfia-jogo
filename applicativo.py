@@ -12,9 +12,17 @@ GAME_KEYS = {'QUIZ': 'quiz', 'GOLPE OU NAO?': 'golpe', 'E AGORA?': 'agora'}
 
 #ACESSO À BASE DE DADOS
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'scores.db')
+# Se houver DATABASE_URL definida no ambiente (Render), usa ela. Se não, usa SQLite local.
+db_url = os.environ.get('DATABASE_URL')
+if db_url:
+    if db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'scores.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
 # MODELO DA TABELA A USAR
 class Score(db.Model):
     id = db.Column(db.Integer, primary_key=True)
