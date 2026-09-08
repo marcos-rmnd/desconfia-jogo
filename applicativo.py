@@ -90,6 +90,15 @@ def classificar(ac, tot):
                 'desc': 'O golpista provavelmente vai perder tempo tentando'}
     return {'label': 'PERITO', 'cls': 'cls-Perito', 'pct': pct, 'desc': 'Você já pode até dar aulas no grupo da família!'}
 
+def salvar_pontuacao(nome, pontos, total):
+    try:
+        novo_score = Score(nome=nome, pontos=pontos, total=total)
+        db.session.add(novo_score)
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        print(f"ERRO ao salvar pontuação: {e}")
+
 @app.route('/')
 def menu():
     init_sessao()
@@ -342,9 +351,7 @@ def resultados():
     nome = session.get('nome_jogador', 'Anônimo')
     pontos = session.get('pontos', 0)
     total = session.get('total', 0)
-    novo_score = Score(nome=nome, pontos=pontos, total=total)
-    db.session.add(novo_score)
-    db.session.commit()
+    salvar_pontuacao(nome, pontos, total)
     chave = GAME_KEYS.get(session.get('jogo', ''))
     if chave:
         jogos = session.get('jogos_completos', {})
@@ -373,6 +380,10 @@ def game_over():
             jogos[chave] = True
             session['jogos_completos'] = jogos
             session.modified = True
+    nome = session.get('nome_jogador', 'Anônimo')
+    pontos = session.get('pontos', 0)
+    total = session.get('total', 0)
+    salvar_pontuacao(nome, pontos, total)
     ac = session.get('ac_jogo', 0)
     tot = session.get('tot_jogo', 0)
     cls = classificar(ac, tot)
