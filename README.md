@@ -8,6 +8,7 @@ Um jogo educativo sobre segurança digital, golpes, vírus e notícias falsas, f
 
 O jogador vivencia três modos dinâmicos e recebe explicações detalhadas a cada resposta. Mais do que apenas testar o aprendizado, o objetivo principal é ensinar os motivos por trás de cada situação. 
 Por isso, a plataforma não exibe um ranking competitivo, o foco é o aprendizado individual e a conscientização.
+
 ---
 
 ## Como funciona
@@ -38,8 +39,8 @@ O jogador pode reiniciar o próprio progresso a qualquer momento pelo botão **[
 ## Tecnologias
 
 - Python + Flask (backend)
-- Flask-Session (sessão do jogador salva em arquivo, no servidor)
-- Flask-SQLAlchemy + SQLite (persistência de nome e pontuação dos jogadores)
+- Sessão do jogador em cookie assinado (Flask nativo, sem dependência de arquivo no servidor)
+- Flask-SQLAlchemy + PostgreSQL (Neon) em produção, com fallback para SQLite local em desenvolvimento
 - HTML (Jinja2), CSS e JavaScript puro (frontend)
 - Dados das perguntas/situacoes em JSON, separados da lógica para facilmente ir incrementando (escalonável)
 
@@ -56,6 +57,8 @@ cd game-python
 
 # instala as dependências
 pip install -r requirements.txt
+# SECRET_KEY - chave de sessão (se não definida, usa uma padrão de desenvolvimento)
+# DATABASE_URL - se não definida, usa SQLite local (scores.db)
 
 # roda o servidor
 python applicativo.py
@@ -66,6 +69,12 @@ Acessa no navegador: `http://localhost:5000`
 
 ## Como colocar no ar (deploy gratuito)
 
+### Neon (banco de dados em produção)
+1. Cria conta em [neon.tech](https://neon.tech)
+2. Cria um projeto (isso já gera um branch/banco padrão)
+3. Copia a connection string em **Connection Details**
+4. Usa essa string como valor de `DATABASE_URL` no Render (próximo passo)
+
 ### Render (para jogar de verdade)
 
 1. Cria conta em [render.com](https://render.com)
@@ -75,17 +84,21 @@ Acessa no navegador: `http://localhost:5000`
    - **Build Command:** `pip install -r requirements.txt`
    - **Start Command:** `gunicorn applicativo:app`
    - **Environment:** Python 3
-5. Clica em **Deploy**
+5. Na aba **Environment**, adiciona as variáveis:
+   - DATABASE_URL: a connection string copiada do Neon
+   - SECRET_KEY: uma chave aleatória forte (gera com `python -c "import secrets; print(secrets.token_hex(32))"`)
+6. Clica em **Deploy**
 
 Pronto. O Render gera um link publico que qualquer pessoa acessa no navegador, sem instalar nada.
 
 > O plano gratuito do Render hiberna após 15 minutos sem uso. A primeira visita pode demorar uns 30 segundos para acordar o servidor.
 
-### GitHub Pages (apenas para consulta do codigo)
+### GitHub (apenas para consulta do codigo)
 
 O repositorio também pode ser publicado no GitHub Pages, mas **so como vitrine do codigo-fonte** 
 O GitHub Pages hospeda apenas arquivos estaticos (HTML/CSS/JS) e não executa aplicacoes Python/Flask no servidor. 
 Ou seja, o jogo em si **não roda** por ali; quem quiser jogar de verdade deve usar o link gerado pelo Render.
+
 ---
 
 ## Estrutura do projeto
@@ -93,12 +106,11 @@ Ou seja, o jogo em si **não roda** por ali; quem quiser jogar de verdade deve u
 ```
 game-python/
 |-- applicativo.py         # servidor Flask: rotas, sessao, banco de dados
-|-- requirements.txt       # flask, flask-session, flask-sqlalchemy, gunicorn
-|-- scores.db              # banco SQLite gerado automaticamente (nome e pontuacao)
+|-- requirements.txt       # flask, flask-sqlalchemy, gunicorn, psycopg2-binary
+|-- scores.db              # banco SQLite local (se em dev); em producao usa Postgres (Neon) por DATABASE_URL
 |-- quiz.json              # banco de 20 perguntas
 |-- mensagens.json         # cenarios para o jogo "Golpe ou Nao?"
 |-- situacoes.json         # situacoes para o jogo "E Agora?"
-|-- sessoes/               # arquivos de sessao de cada jogador (gerados em runtime apenas)
 |-- templates/
 |   |-- base.html          # layout base (janela estilo retro, titlebar)
 |   |-- login.html         # tela inicial, jogador digita o nome
