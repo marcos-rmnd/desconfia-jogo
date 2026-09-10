@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 from forms_helper import montar_link_forms
+from flask_session import Session
 import json
 import os
 import random
@@ -21,6 +22,12 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'scores.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+# CONFIGURAÇÃO DE SESSÃO NO BANCO DE DADOS (Neon)
+app.config['SESSION_TYPE'] = 'sqlalchemy'
+app.config['SESSION_SQLALCHEMY'] = db
+app.config['SESSION_PERMANENT'] = False
+Session(app)
 
 # MODELO DA TABELA A USAR
 class Score(db.Model):
