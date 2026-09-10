@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 from forms_helper import montar_link_forms
-from flask_session import Session
 import json
 import os
 import random
@@ -33,12 +32,6 @@ class Score(db.Model):
 # Cria a tabela no arquivo
 with app.app_context():
     db.create_all()
-
-# CONFIGURAÇÃO PARA SALVAR AS SESSÕES EM ARQUIVOS NO SEU PC (para o jogo)
-app.config['SESSION_TYPE'] = 'filesystem'
-app.config['SESSION_FILE_DIR'] = os.path.join(os.getcwd(), 'sessoes')
-os.makedirs(app.config['SESSION_FILE_DIR'], exist_ok=True)
-Session(app)
 
 #FUNÇÕES E CONFIGURAÇÕES GERAIS DOS JOGOS
 def carregar(arquivo):
@@ -92,9 +85,20 @@ def classificar(ac, tot):
 
 def salvar_pontuacao(nome, pontos, total):
     try:
+        score_id = session.get('score_id')
+        if score_id:
+            registro = Score.query.get(score_id)
+            if registro:
+                registro.pontos = pontos
+                registro.total = total
+                registro.data = datetime.now()
+                db.session.commit()
+                return
         novo_score = Score(nome=nome, pontos=pontos, total=total)
         db.session.add(novo_score)
         db.session.commit()
+        session['score_id'] = novo_score.id
+        session.modified = True
     except Exception as e:
         db.session.rollback()
         print(f"ERRO ao salvar pontuação: {e}")
