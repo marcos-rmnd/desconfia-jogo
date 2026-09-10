@@ -4,7 +4,7 @@ import json
 import os
 import random
 app = Flask(__name__)
-app.secret_key = 'Desconfia!-br-2026'
+app.secret_key = os.environ.get('SECRET_KEY', 'Desconfia!-br-2026') #para acesso remoto e local
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 GAME_KEYS = {'QUIZ': 'quiz', 'GOLPE OU NAO?': 'golpe', 'E AGORA?': 'agora'}
@@ -345,6 +345,7 @@ def login():
         nome = request.form['nome']
         session['nome_jogador'] = nome
         session['jogos_completos'] = {'quiz': False, 'golpe': False, 'agora': False}
+        session.pop('score_id', None)
         session.modified = True
         return redirect(url_for('menu'))
     return render_template('login.html')
