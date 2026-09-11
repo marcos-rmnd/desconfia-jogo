@@ -39,7 +39,7 @@ O jogador pode reiniciar o próprio progresso a qualquer momento pelo botão **[
 ## Tecnologias
 
 - Python + Flask (backend)
-- Sessão do jogador em cookie assinado (Flask nativo, sem dependência de arquivo no servidor)
+- Sessão do jogador armazenada no banco de dados (Flask-Session + SQLAlchemy), usando a mesma conexão SQL (Neon) da aplicação
 - Flask-SQLAlchemy + PostgreSQL (Neon) em produção, com fallback para SQLite local em desenvolvimento
 - HTML (Jinja2), CSS e JavaScript puro (frontend)
 - Dados das perguntas/situacoes em JSON, separados da lógica para facilmente ir incrementando (escalonável)
@@ -106,7 +106,7 @@ Ou seja, o jogo em si **não roda** por ali; quem quiser jogar de verdade deve u
 ```
 game-python/
 |-- applicativo.py         # servidor Flask: rotas, sessao, banco de dados
-|-- requirements.txt       # flask, flask-sqlalchemy, gunicorn, psycopg2-binary
+|-- requirements.txt       # flask, flask-sqlalchemy, flask-session, gunicorn, psycopg2-binary
 |-- scores.db              # banco SQLite local (se em dev); em producao usa Postgres (Neon) por DATABASE_URL
 |-- quiz.json              # banco de 20 perguntas
 |-- mensagens.json         # cenarios para o jogo "Golpe ou Nao?"
