@@ -137,7 +137,7 @@ Precisa ter Python 3.8 ou superior instalado.
 
 ```bash
 # clona o repositorio
-git clone https://github.com/anelize-borges/game-python.git
+git clone https://github.com/marcos-rmnd/desconfia-jogo.git
 cd game-python
 
 # instala as dependências
