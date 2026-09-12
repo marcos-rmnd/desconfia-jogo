@@ -138,17 +138,22 @@ Precisa ter Python 3.8 ou superior instalado.
 ```bash
 # clona o repositorio
 git clone https://github.com/marcos-rmnd/desconfia-jogo.git
-cd game-python
+cd desconfia-jogo
 
 # instala as dependências
 pip install -r requirements.txt
-# SECRET_KEY - chave de sessão (se não definida, usa uma padrão de desenvolvimento)
-# DATABASE_URL - se não definida, usa SQLite local (scores.db)
+
+# (opcional) define variáveis de ambiente, se quiser usar Postgres local ou uma secret key própria
+# Linux/Mac: export DATABASE_URL="postgresql://..."
+# Windows (PowerShell): $env:DATABASE_URL="postgresql://..."
+# Se não definidas, a aplicação usa SQLite local (scores.db) e uma secret key padrão de desenvolvimento
 
 # roda o servidor
 python applicativo.py
+# No Windows, se "python" não for reconhecido, tenta "py applicativo.py"
+
 ```
-Acessa no navegador: `http://localhost:5000`
+Acessa no navegador em: `http://localhost:5000`
 
 ---
 
