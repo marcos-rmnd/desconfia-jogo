@@ -22,7 +22,7 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'scores.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
-    'pool_pre_ping': True, 'pool_recycle': 300,
+    'pool_pre_ping': True, 'pool_recycle': 180, 'pool_timeout': 30
 }
 db = SQLAlchemy(app)
 
@@ -42,6 +42,13 @@ class Score(db.Model):
 # Cria a tabela no arquivo
 with app.app_context():
     db.create_all()
+
+@app.before_request
+def verificar_login():
+    rotas_publicas = ['login', 'static']
+    if request.endpoint and request.endpoint not in rotas_publicas:
+        if 'nome_jogador' not in session:
+            return redirect(url_for('login'))
 
 #FUNÇÕES E CONFIGURAÇÕES GERAIS DOS JOGOS
 def carregar(arquivo):
@@ -63,12 +70,14 @@ def acertou():
     session['tot_jogo'] = session.get('tot_jogo', 0) + 1
     session['pts_jogo'] = session.get('pts_jogo', 0) + 10
     session.modified = True
+    salvar_pontuacao(session.get('nome_jogador'), session['pontos'], session['total'])
 
 def errou():
     session['vidas'] = session.get('vidas', 3) - 1
     session['total'] = session.get('total', 0) + 1
     session['tot_jogo'] = session.get('tot_jogo', 0) + 1
     session.modified = True
+    salvar_pontuacao(session.get('nome_jogador'), session['pontos'], session['total'])
 
 def marcar_jogo_como_concluido():
     chave = GAME_KEYS.get(session.get('jogo', ''))
@@ -94,24 +103,28 @@ def classificar(ac, tot):
     return {'label': 'PERITO', 'cls': 'cls-Perito', 'pct': pct, 'desc': 'Você já pode até dar aulas no grupo da família!'}
 
 def salvar_pontuacao(nome, pontos, total):
-    try:
-        score_id = session.get('score_id')
-        if score_id:
-            registro = Score.query.get(score_id)
-            if registro:
-                registro.pontos = pontos
-                registro.total = total
-                registro.data = datetime.now()
-                db.session.commit()
-                return
-        novo_score = Score(nome=nome, pontos=pontos, total=total)
-        db.session.add(novo_score)
-        db.session.commit()
-        session['score_id'] = novo_score.id
-        session.modified = True
-    except Exception as e:
-        db.session.rollback()
-        print(f"ERRO ao salvar pontuação: {e}")
+    if not nome or nome == 'Anônimo':
+        return
+    for tentativa in range(2):
+        try:
+            score_id = session.get('score_id')
+            if score_id:
+                registro = db.session.get(Score, score_id)
+                if registro:
+                    registro.pontos = pontos
+                    registro.total = total
+                    registro.data = datetime.now()
+                    db.session.commit()
+                    return
+            novo_score = Score(nome=nome, pontos=pontos, total=total)
+            db.session.add(novo_score)
+            db.session.commit()
+            session['score_id'] = novo_score.id
+            session.modified = True
+            return
+        except Exception as e:
+            db.session.rollback()
+            print(f"[Tentativa {tentativa + 1}] Erro ao salvar pontuação: {e}")
 
 @app.route('/')
 def menu():
@@ -150,6 +163,7 @@ def quiz_iniciar():
     session['jogo'] = 'QUIZ'
     session.modified = True
     return redirect(url_for('quiz_pergunta'))
+
 @app.route('/quiz/pergunta')
 def quiz_pergunta():
     if session.get('jogos_completos', {}).get('quiz') and not session.get('fila'):
