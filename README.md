@@ -46,6 +46,99 @@ O jogador pode reiniciar o próprio progresso a qualquer momento pelo botão **[
 
 ---
 
+## Requisitos de Sistema
+
+Requisitos Funcionais (RF)
+RF01 – Identificação Simples: Permitir a entrada do jogador apenas com o primeiro nome para controle de sessão, sem necessidade de senha ou cadastro complexo.
+
+RF02 – Módulos Gamificados: Disponibilizar 3 modalidades independentes de jogo (Quiz de Conhecimento, É Golpe ou Não? & E Agora?).
+
+RF03 – Temporizador de Urgência: Aplicar contagem regressiva de 15 segundos nas questões de decisão rápida (Jogo 2), registrando tempo esgotado como erro.
+
+RF04 – Gestão de Vidas e Pontuação: Somar 10 pontos por acerto, gerenciar o limite de 3 vidas por partida e redirecionar para Game Over caso as vidas se esgotem.
+
+RF05 – Persistência no Banco de Dados: Salvar automaticamente o nome, pontuação final, total de perguntas e data/hora no banco PostgreSQL.
+
+RF06 – Classificação de Vulnerabilidade: Calcular a porcentagem de acertos e classificar o jogador em 4 perfis (ISCA, ATENTO, BLINDADO ou PERITO).
+
+RF07 – Formulário Condicional de Feedback: Liberar dinamicamente o botão de acesso ao Google Forms no menu principal apenas após a conclusão dos 3 jogos, preenchendo automaticamente Nome e Pontuação na URL.
+
+RF08 – Carregamento Dinâmico em JSON: Manter o acervo de perguntas e explicativos desacoplado da lógica da aplicação.
+
+Requisitos Não Funcionais (RNF)
+RNF01 – Segurança e Arquitetura Cliente-Servidor: Isolar a regra de negócios no servidor Flask, ocultando variáveis de ambiente sensíveis (DATABASE_URL) e prevenindo manipulação de pontos via navegador.
+
+RNF02 – Usabilidade e Acessibilidade: Interface responsiva retro-pixel em alto contraste, adaptada para fácil visualização e toque em smartphones por adultos e idosos.
+
+RNF03 – Conformidade com a LGPD: Não solicitar nem armazenar dados pessoais sensíveis (como CPF, e-mail, sobrenome ou telefone).
+
+RNF04 – Disponibilidade: Manter a aplicação online na plataforma Render conectada ao banco Neon DB com tempo de resposta inferior a 2 segundos.
+
+RNF05 – Escalabilidade: Permitir inclusão de novos golpes digitais nos arquivos JSON sem necessidade de refatorar o código-fonte em Python.
+
+---
+
+## Diagrama de Casos de Uso (UML)
+```mermaid
+graph LR
+    Jogador((Jogador))
+
+    Jogador --> UC1[UC01: Login / Identificação]
+    Jogador --> UC2[UC02: Jogar Quiz de Conhecimento]
+    Jogador --> UC3[UC03: É Golpe ou Não? 15s]
+    Jogador --> UC4[UC04: Jogar E Agora?]
+    Jogador --> UC5[UC05: Visualizar Pontuação e Nível]
+    Jogador --> UC6[UC06: Responder Forms de Feedback]
+    Jogador --> UC7[UC07: Reiniciar Sessão]
+    Jogador --> UC8[UC08: Ver Regras do Jogo]
+
+    UC6 -.->|<>| UC5
+```
+
+## Diagrama de Classes
+Estrutura conceitual da sessãoJogo Flask, não é uma classe Python real, mas sim umma abstração, uma representação visual
+```mermaid
+classDiagram
+    class SessaoJogo {
+        <>
+        +String nome_jogador
+        +int pontos
+        +int acertos
+        +int total
+        +int vidas
+        +Dict jogos_completos
+        +int score_id (opcional)
+        +init_sessao()
+        +acertou() / +errou()
+        +classificar(ac, tot) : Dict
+        +salvar_pontuacao(nome, pontos, total)
+        +marcar_jogo_como_concluido()
+    }
+
+    class Score {
+        <>
+        +int id
+        +String nome
+        +int pontos
+        +int total
+        +DateTime data
+    }
+
+    class FormsHelper {
+        +String GOOGLE_FORM_BASE_URL
+        +String GOOGLE_FORM_ENTRY_NOME
+        +String GOOGLE_FORM_ENTRY_PONTOS
+        +String GOOGLE_FORM_ENTRY_TOTAL
+        +montar_link_forms(nome, pontos) : String
+    }
+
+
+    SessaoJogo "1" --> "0..*" Score : persistem os dados no banco Neon
+    SessaoJogo "1" --> "1" FormsHelper : gera URL de feedback
+```
+
+---
+
 ## Como rodar localmente
 
 Precisa ter Python 3.8 ou superior instalado.
