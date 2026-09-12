@@ -48,34 +48,26 @@ O jogador pode reiniciar o próprio progresso a qualquer momento pelo botão **[
 
 ## Requisitos de Sistema
 
-Requisitos Funcionais (RF)
-RF01 – Identificação Simples: Permitir a entrada do jogador apenas com o primeiro nome para controle de sessão, sem necessidade de senha ou cadastro complexo.
+### Requisitos Funcionais (RF)
+| ID | Nome | Descrição |
+|----|------|-----------|
+| RF01 | Identificação simples | Permite a entrada do jogador apenas com o primeiro nome para controle de sessão, sem necessidade de senha ou cadastro complexo. |
+| RF02 | Módulos gamificados | Disponibiliza 3 modalidades independentes de jogo: Quiz de Conhecimento, É Golpe ou Não? e E Agora? |
+| RF03 | Temporizador de urgência | Aplica contagem regressiva de 15 segundos nas questões de decisão rápida (Jogo 2), registrando tempo esgotado como erro. |
+| RF04 | Gestão de vidas e pontuação | Soma 10 pontos por acerto, gerencia o limite de 3 vidas por partida e redireciona para Game Over caso as vidas se esgotem. |
+| RF05 | Persistência no banco de dados | Salva automaticamente nome, pontuação final, total de perguntas e data/hora no banco PostgreSQL. |
+| RF06 | Classificação de vulnerabilidade | Calcula a porcentagem de acertos e classifica o jogador em 4 perfis: Isca, Atento, Blindado ou Perito. |
+| RF07 | Formulário condicional de feedback | Libera dinamicamente o botão de acesso ao Google Forms no menu principal apenas após a conclusão dos 3 jogos, preenchendo automaticamente nome e pontuação na URL. |
+| RF08 | Carregamento dinâmico em JSON | Mantém o acervo de perguntas e explicativos desacoplado da lógica da aplicação. |
 
-RF02 – Módulos Gamificados: Disponibilizar 3 modalidades independentes de jogo (Quiz de Conhecimento, É Golpe ou Não? & E Agora?).
-
-RF03 – Temporizador de Urgência: Aplicar contagem regressiva de 15 segundos nas questões de decisão rápida (Jogo 2), registrando tempo esgotado como erro.
-
-RF04 – Gestão de Vidas e Pontuação: Somar 10 pontos por acerto, gerenciar o limite de 3 vidas por partida e redirecionar para Game Over caso as vidas se esgotem.
-
-RF05 – Persistência no Banco de Dados: Salvar automaticamente o nome, pontuação final, total de perguntas e data/hora no banco PostgreSQL.
-
-RF06 – Classificação de Vulnerabilidade: Calcular a porcentagem de acertos e classificar o jogador em 4 perfis (ISCA, ATENTO, BLINDADO ou PERITO).
-
-RF07 – Formulário Condicional de Feedback: Liberar dinamicamente o botão de acesso ao Google Forms no menu principal apenas após a conclusão dos 3 jogos, preenchendo automaticamente Nome e Pontuação na URL.
-
-RF08 – Carregamento Dinâmico em JSON: Manter o acervo de perguntas e explicativos desacoplado da lógica da aplicação.
-
-Requisitos Não Funcionais (RNF)
-RNF01 – Segurança e Arquitetura Cliente-Servidor: Isolar a regra de negócios no servidor Flask, ocultando variáveis de ambiente sensíveis (DATABASE_URL) e prevenindo manipulação de pontos via navegador.
-
-RNF02 – Usabilidade e Acessibilidade: Interface responsiva retro-pixel em alto contraste, adaptada para fácil visualização e toque em smartphones por adultos e idosos.
-
-RNF03 – Conformidade com a LGPD: Não solicitar nem armazenar dados pessoais sensíveis (como CPF, e-mail, sobrenome ou telefone).
-
-RNF04 – Disponibilidade: Manter a aplicação online na plataforma Render conectada ao banco Neon DB com tempo de resposta inferior a 2 segundos.
-
-RNF05 – Escalabilidade: Permitir inclusão de novos golpes digitais nos arquivos JSON sem necessidade de refatorar o código-fonte em Python.
-
+### Requisitos Não Funcionais (RNF)
+| ID | Nome | Descrição |
+|----|------|-----------|
+| RNF01 | Segurança e arquitetura cliente-servidor | Isola a regra de negócios no servidor Flask, ocultando variáveis de ambiente sensíveis (`DATABASE_URL`) e prevenindo manipulação de pontos via navegador. |
+| RNF02 | Usabilidade e acessibilidade | Interface responsiva retro-pixel em alto contraste, adaptada para fácil visualização e toque em smartphones por adultos e idosos. |
+| RNF03 | Conformidade com a LGPD | Não solicita nem armazena dados pessoais sensíveis (como CPF, e-mail, sobrenome ou telefone). |
+| RNF04 | Disponibilidade | Mantém a aplicação online na plataforma Render conectada ao banco Neon DB, com tempo de resposta inferior a 2 segundos. |
+| RNF05 | Escalabilidade | Permite inclusão de novos golpes digitais nos arquivos JSON sem necessidade de refatorar o código-fonte em Python. |
 ---
 
 ## Diagrama de Casos de Uso (UML)
